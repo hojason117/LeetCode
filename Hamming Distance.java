@@ -1,5 +1,5 @@
 public class Solution {
-	public static int hammingDistance(int x, int y) {
+	public int hammingDistance(int x, int y) {
         int temp = x ^ y;
         
         int result = 0;
