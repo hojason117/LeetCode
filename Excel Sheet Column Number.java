@@ -6,5 +6,5 @@ public class Solution {
 			result += (s.charAt(i) - 'A' + 1) * Math.pow(26, s.length() - i - 1);
 		
 		return result;
-    }
+	}
 }
