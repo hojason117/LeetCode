@@ -1,3 +1,4 @@
+// Java
 /**
  * Definition for an interval.
  * public class Interval {
@@ -33,3 +34,37 @@ class Solution {
         return result;
     }
 }
+
+// Javascript
+/**
+ * Definition for an interval.
+ * function Interval(start, end) {
+ *     this.start = start;
+ *     this.end = end;
+ * }
+ */
+/**
+ * @param {Interval[]} intervals
+ * @return {Interval[]}
+ */
+var merge = function(intervals) {
+    var result = [];
+    
+    intervals.sort((a, b) => a.start - b.start);
+    
+    for(let i = 0; i < intervals.length; i++) {
+        let start = intervals[i].start;
+        let end = intervals[i].end;
+        let pointer = i + 1;
+        while(pointer < intervals.length && intervals[pointer].start <= end) {
+            end = (intervals[pointer].end > end) ? intervals[pointer].end : end;
+            i++;
+            pointer++;
+        }
+        
+        result.push(new Interval(start, end));
+    }
+    
+    return result;
+};
+
