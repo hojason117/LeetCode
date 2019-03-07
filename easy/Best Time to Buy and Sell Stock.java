@@ -1,3 +1,4 @@
+// dynamic programming
 class Solution {
     public int maxProfit(int[] prices) {
         if(prices.length == 0)
@@ -16,5 +17,23 @@ class Solution {
         }
         
         return max;
+    }
+}
+
+// one pass
+class Solution {
+    public int maxProfit(int[] prices) {
+        int maxProfit = 0, minValue = Integer.MAX_VALUE;
+        
+        for(int i : prices) {
+            if(i < minValue)
+                minValue = i;
+            else {
+                if(i - minValue > maxProfit)
+                    maxProfit = i - minValue;
+            }
+        }
+        
+        return maxProfit;
     }
 }
