@@ -1,3 +1,28 @@
+// backtracking
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        List<String> result = new ArrayList<String>();
+        helper("", n, 0, 0, result);
+        
+        return result;
+    }
+    
+    private void helper(String current, int n, int left, int right, List<String> result) {
+        if(left == n && right == n)
+            result.add(current);
+        else {
+            if(left == right)
+                helper(current + '(', n, left + 1, right, result);
+            else if(left > right) {
+                if(left < n)
+                    helper(current + '(', n, left + 1, right, result);
+                helper(current + ')', n, left, right + 1, result);
+            }
+        }
+    }
+}
+
+// brute force
 class Solution {
     public List<String> generateParenthesis(int n) {
         List<String> result = new ArrayList<String>();
