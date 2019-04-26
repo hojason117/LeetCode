@@ -21,7 +21,6 @@ class Solution {
         while(!queue.isEmpty()) {
             List<Integer> level = new ArrayList<Integer>();
             
-            int nextLevelSize = 0;
             for(int i = 0; i < levelSize; i++) {
                 TreeNode temp = queue.poll();
                 
